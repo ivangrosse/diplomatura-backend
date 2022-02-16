@@ -8,7 +8,6 @@ const app = express();
 mongoose.connect('mongodb://localhost/products');
 mongoose.Promise = global.Promise;
 
-app.use(express.static('public')); //middleware que permite agregar contenido estatico
 app.use(express.json());
 
 // initialize routes
@@ -20,5 +19,5 @@ app.use(function(err,req,res,next){
  });
 
 app.listen(process.env.port || 4000, function(){
-    console.log('now listening for requests');
+    console.log(`Listening for requests...`);
  });
