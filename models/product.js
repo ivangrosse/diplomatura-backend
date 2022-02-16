@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const ProductSchema = new Schema({
     name: {
         type: String,
+        required: [true, 'Name field is required']
     },
     description: {
         type: String,
@@ -11,7 +12,11 @@ const ProductSchema = new Schema({
     },
     price: {
         type: Number,
-        deafult: 0
+        deafult: 0,
+        required: [true, 'Price field is required']
+    },
+    imageUrl: {
+        type: String
     }
 });
 

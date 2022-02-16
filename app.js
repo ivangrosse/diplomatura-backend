@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 
 const apiRoutes = require('./routes/api')
 
-
 const app = express();
-mongoose.connect('mongodb://localhost/products');
+mongoose.connect('mongodb+srv://diplomatura:software@cluster0.xvb0v.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 mongoose.Promise = global.Promise;
 
 app.use(express.json());
@@ -14,8 +13,8 @@ app.use(express.json());
 app.use('/api', apiRoutes);
 
 // error handling middleware
-app.use(function(err,req,res,next){
-    res.status(422).send({error: err.message});
+app.use(function(err, req, res, next){
+    res.status(422).send({ error: err.message });
  });
 
 app.listen(process.env.port || 4000, function(){
