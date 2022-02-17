@@ -14,9 +14,9 @@ app.use('/api', apiRoutes);
 
 // error handling middleware
 app.use(function(err, req, res, next){
-    res.status(422).send({ error: err.message });
+    res.status(500).send({ error: err.message });
  });
 
 app.listen( 4000, function(){
-    console.log(`Listening for requests...`);
+    console.log(`API escuchando en el puerto 4000...`);
  });
