@@ -10,6 +10,7 @@ router.get('/products', async (req,res) => {
         return res.send(products);
     } catch(error){
         console.log('Algo ocurrio:', error);
+        res.status(500).send({ error: error.message });
         throw error;
     }
 });
@@ -21,6 +22,7 @@ router.post('/products', async (req, res) => {
         return res.send(product);
     } catch(error){
         console.log('Algo ocurrio:', error);
+        res.status(500).send({ error: error.message });
         throw error;
     }
 });
@@ -32,6 +34,7 @@ router.put('/products/:id', async (req, res) => {
         return res.send(product);
     } catch(error){
         console.log('Algo ocurrio:', error);
+        res.status(500).send({ error: error.message });
         throw error;
     }
 });
@@ -43,6 +46,7 @@ router.delete('/products/:id', async (req, res) => {
         return res.send(product);
     } catch(error){
         console.log('Algo ocurrio:', error);
+        res.status(500).send({ error: error.message });
         throw error;
     }
 });

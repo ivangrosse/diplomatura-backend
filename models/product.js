@@ -12,7 +12,6 @@ const ProductSchema = new Schema({
     },
     price: {
         type: Number,
-        deafult: 0,
         required: [true, 'Price field is required']
     },
     imageUrl: {
@@ -20,7 +19,6 @@ const ProductSchema = new Schema({
     }
 });
 
+const Product = mongoose.model('product', ProductSchema);
 
-const Student = mongoose.model('product', ProductSchema);
-
-module.exports = Student;
+module.exports = Product;
