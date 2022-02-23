@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Product = require('../models/product');
 
-router.get('/products', async (req,res) => {
+router.get('/products', async (req, res) => {
     try {
         const products = await Product.find({});
 
@@ -42,6 +42,18 @@ router.put('/products/:id', async (req, res) => {
 router.delete('/products/:id', async (req, res) => {
     try {
         const product = await Product.findOneAndDelete({ _id: req.params.id });
+
+        return res.send(product);
+    } catch(error){
+        console.log('Algo ocurrio:', error);
+        res.status(500).send({ error: error.message });
+        throw error;
+    }
+});
+
+router.get('/products/:id', async (req, res) => {
+    try {
+        const product = await Product.findById({ _id: req.params.id });
 
         return res.send(product);
     } catch(error){
