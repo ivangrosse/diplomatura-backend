@@ -33,7 +33,7 @@ const propertyValidator = (req, res, next) => {
 };
 
 const nameValidator = (req, res, next) => {
-    if(req.body.name.length > 50){
+    if(req.body.name && req.body.name.length > 50){
         return res.status(400).send({ error: "The name is too long." });
     };
     
