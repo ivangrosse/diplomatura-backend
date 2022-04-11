@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const cors = require('cors');
+const port = process.env.PORT || 8000;
 
 const apiRoutes = require('./routes/api');
 const { idValidator, priceValidator, propertyValidator, nameValidator } = require('./middlewares/requestValidator');
@@ -26,6 +27,6 @@ app.use(function(err, req, res, next){
 
 app.use('/api', apiRoutes);
 
-app.listen( 8080 , function(){
-    console.log(`API escuchando en el puerto 8080...`);
+app.listen( port , function(){
+    console.log(`API escuchando en el puerto ${port}...`);
  });
